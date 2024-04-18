@@ -1,0 +1,16 @@
+
+def update(serverfile,key,newval):
+    with open (serverfile,"r")as lines:
+        files=lines.readlines()
+    with open (serverfile,"w") as lines:
+        for line in files:
+            if key in line:
+                lines.write(key+"="+newval+"\n")
+            else:
+                lines.write(line)
+
+
+serverfile='server.config'
+key='MAX_CONNECTIONS'
+newval='250'
+update(serverfile,key,newval)
